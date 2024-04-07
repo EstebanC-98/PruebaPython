@@ -1,15 +1,23 @@
 [
     {
-        "label": "sys",
+        "label": "label",
+        "importPath": "cProfile",
+        "description": "cProfile",
+        "isExtraImport": true,
+        "detail": "cProfile",
+        "documentation": {}
+    },
+    {
+        "label": "sys,",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "sys",
-        "description": "sys",
-        "detail": "sys",
+        "importPath": "sys.",
+        "description": "sys.",
+        "detail": "sys.",
         "documentation": {}
     },
     {
-        "label": "QApplication",
+        "label": "*",
         "importPath": "PyQt5.QtWidgets",
         "description": "PyQt5.QtWidgets",
         "isExtraImport": true,
@@ -17,43 +25,19 @@
         "documentation": {}
     },
     {
-        "label": "QWidget",
-        "importPath": "PyQt5.QtWidgets",
-        "description": "PyQt5.QtWidgets",
+        "label": "pyqtSlot",
+        "importPath": "PyQt5.QtCore",
+        "description": "PyQt5.QtCore",
         "isExtraImport": true,
-        "detail": "PyQt5.QtWidgets",
+        "detail": "PyQt5.QtCore",
         "documentation": {}
     },
     {
-        "label": "QPushButton",
-        "importPath": "PyQt5.QtWidgets",
-        "description": "PyQt5.QtWidgets",
+        "label": "*",
+        "importPath": "PyQt5.QtGui",
+        "description": "PyQt5.QtGui",
         "isExtraImport": true,
-        "detail": "PyQt5.QtWidgets",
-        "documentation": {}
-    },
-    {
-        "label": "QVBoxLayout",
-        "importPath": "PyQt5.QtWidgets",
-        "description": "PyQt5.QtWidgets",
-        "isExtraImport": true,
-        "detail": "PyQt5.QtWidgets",
-        "documentation": {}
-    },
-    {
-        "label": "QLineEdit",
-        "importPath": "PyQt5.QtWidgets",
-        "description": "PyQt5.QtWidgets",
-        "isExtraImport": true,
-        "detail": "PyQt5.QtWidgets",
-        "documentation": {}
-    },
-    {
-        "label": "QLabel",
-        "importPath": "PyQt5.QtWidgets",
-        "description": "PyQt5.QtWidgets",
-        "isExtraImport": true,
-        "detail": "PyQt5.QtWidgets",
+        "detail": "PyQt5.QtGui",
         "documentation": {}
     },
     {
@@ -65,11 +49,59 @@
         "documentation": {}
     },
     {
-        "label": "Keys",
-        "importPath": "selenium.webdriver.common.keys",
-        "description": "selenium.webdriver.common.keys",
+        "label": "By",
+        "importPath": "selenium.webdriver.common.by",
+        "description": "selenium.webdriver.common.by",
         "isExtraImport": true,
-        "detail": "selenium.webdriver.common.keys",
+        "detail": "selenium.webdriver.common.by",
+        "documentation": {}
+    },
+    {
+        "label": "WebDriverWait",
+        "importPath": "selenium.webdriver.support.ui",
+        "description": "selenium.webdriver.support.ui",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.support.ui",
+        "documentation": {}
+    },
+    {
+        "label": "expected_conditions",
+        "importPath": "selenium.webdriver.support",
+        "description": "selenium.webdriver.support",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.support",
+        "documentation": {}
+    },
+    {
+        "label": "WebDriverException",
+        "importPath": "selenium.common.exceptions",
+        "description": "selenium.common.exceptions",
+        "isExtraImport": true,
+        "detail": "selenium.common.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "obtener_usuarios",
+        "importPath": "mysql_python",
+        "description": "mysql_python",
+        "isExtraImport": true,
+        "detail": "mysql_python",
+        "documentation": {}
+    },
+    {
+        "label": "obtener_credenciales",
+        "importPath": "mysql_python",
+        "description": "mysql_python",
+        "isExtraImport": true,
+        "detail": "mysql_python",
+        "documentation": {}
+    },
+    {
+        "label": "agregar_usuario",
+        "importPath": "mysql_python",
+        "description": "mysql_python",
+        "isExtraImport": true,
+        "detail": "mysql_python",
         "documentation": {}
     },
     {
@@ -108,38 +140,83 @@
         "documentation": {}
     },
     {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
         "label": "VentanaInicioSesion",
         "kind": 6,
         "importPath": "config.index",
         "description": "config.index",
-        "peekOfCode": "class VentanaInicioSesion(QWidget):\n    def __init__(self):\n        super().__init__()\n        self.setWindowTitle(\"Inicio de Sesión\")\n        self.setGeometry(100, 100, 300, 150)\n        # Crear widgets\n        self.usuario_label = QLabel(\"Usuario:\")\n        self.usuario_input = QLineEdit()\n        self.contrasena_label = QLabel(\"Contraseña:\")\n        self.contrasena_input = QLineEdit()",
+        "peekOfCode": "class VentanaInicioSesion(QWidget):\n    def __init__(self):\n        super().__init__()\n        self.setWindowTitle(\"Inicio de Sesión en Instagram\")\n        self.setFixedSize(700,500)\n        # Obtener la lista de usuarios desde la base de datos\n        self.usuarios = obtener_usuarios()\n        # Widgets\n        self.usuario_label = QLabel(\"Usuarios:\")\n        self.lista_usuarios = QListWidget()",
         "detail": "config.index",
         "documentation": {}
     },
     {
-        "label": "conn",
+        "label": "DialogoAgregarUsuario",
+        "kind": 6,
+        "importPath": "config.index",
+        "description": "config.index",
+        "peekOfCode": "class DialogoAgregarUsuario(QDialog):\n    def __init__(self):\n        super().__init__()\n        self.setWindowTitle(\"Agregar Usuario\")\n        self.setGeometry(200, 200, 300, 100)\n        # Widgets\n        self.usuario_label = QLabel(\"Usuario:\")\n        self.usuario_line_edit = QLineEdit()\n        self.contrasena_label = QLabel(\"Contraseña:\")\n        self.contrasena_line_edit = QLineEdit()",
+        "detail": "config.index",
+        "documentation": {}
+    },
+    {
+        "label": "iniciar_sesion_instagram",
+        "kind": 2,
+        "importPath": "config.index",
+        "description": "config.index",
+        "peekOfCode": "def iniciar_sesion_instagram(usuario, contrasena):\n    global driver\n    try:\n        driver = webdriver.Chrome()\n        driver.get(\"https://www.instagram.com\")\n        # Esperar a que el campo de usuario sea visible\n        campo_usuario = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, \"username\")))\n        # Esperar a que el campo de contraseña sea visible\n        campo_contrasena = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, \"password\")))\n        # Ingresar el usuario y la contraseña",
+        "detail": "config.index",
+        "documentation": {}
+    },
+    {
+        "label": "driver",
         "kind": 5,
+        "importPath": "config.index",
+        "description": "config.index",
+        "peekOfCode": "driver = None\n# Función para iniciar sesión en Instagram\ndef iniciar_sesion_instagram(usuario, contrasena):\n    global driver\n    try:\n        driver = webdriver.Chrome()\n        driver.get(\"https://www.instagram.com\")\n        # Esperar a que el campo de usuario sea visible\n        campo_usuario = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, \"username\")))\n        # Esperar a que el campo de contraseña sea visible",
+        "detail": "config.index",
+        "documentation": {}
+    },
+    {
+        "label": "obtener_usuarios",
+        "kind": 2,
         "importPath": "config.mysql_python",
         "description": "config.mysql_python",
-        "peekOfCode": "conn = mysql.connector.connect(\n    host = \"localhost\",\n    user = \"root\",\n    password = \"\",\n    #port = \"3306\",\n    database = \"login\"\n)\ncursor = conn.cursor()\n#cursor.execute(\"CREATE DATABASE login\")\nsql = \"\"\"CREATE TABLE users (user VARCHAR (255), password VARCHAR(255))\"\"\"",
+        "peekOfCode": "def obtener_usuarios():\n    # Establecer la conexión a la base de datos\n    conn = mysql.connector.connect(\n        host=\"localhost\",\n        user=\"root\",\n        password=\"\",\n        database=\"login\"\n    )\n    # Crear el cursor para ejecutar consultas\n    cursor = conn.cursor()",
         "detail": "config.mysql_python",
         "documentation": {}
     },
     {
-        "label": "cursor",
-        "kind": 5,
+        "label": "agregar_usuario",
+        "kind": 2,
         "importPath": "config.mysql_python",
         "description": "config.mysql_python",
-        "peekOfCode": "cursor = conn.cursor()\n#cursor.execute(\"CREATE DATABASE login\")\nsql = \"\"\"CREATE TABLE users (user VARCHAR (255), password VARCHAR(255))\"\"\"\ncursor.execute(sql)\nconn.commit()\ncursor.execute(\"SHOW TABLES\")\nfor dato in cursor:\n    print(dato)\nconn.close()",
+        "peekOfCode": "def agregar_usuario(usuario, contrasena):\n    # Establecer la conexión a la base de datos\n    conn = mysql.connector.connect(\n        host=\"localhost\",\n        user=\"root\",\n        password=\"\",\n        database=\"login\"\n    )\n    # Crear el cursor para ejecutar consultas\n    cursor = conn.cursor()",
         "detail": "config.mysql_python",
         "documentation": {}
     },
     {
-        "label": "sql",
-        "kind": 5,
+        "label": "obtener_contrasena",
+        "kind": 2,
         "importPath": "config.mysql_python",
         "description": "config.mysql_python",
-        "peekOfCode": "sql = \"\"\"CREATE TABLE users (user VARCHAR (255), password VARCHAR(255))\"\"\"\ncursor.execute(sql)\nconn.commit()\ncursor.execute(\"SHOW TABLES\")\nfor dato in cursor:\n    print(dato)\nconn.close()",
+        "peekOfCode": "def obtener_contrasena(usuario):\n    # Establecer la conexión a la base de datos\n    conn = mysql.connector.connect(\n        host=\"localhost\",\n        user=\"root\",\n        password=\"\",\n        database=\"login\"\n    )\n    # Crear el cursor para ejecutar consultas\n    cursor = conn.cursor()",
+        "detail": "config.mysql_python",
+        "documentation": {}
+    },
+    {
+        "label": "obtener_credenciales",
+        "kind": 2,
+        "importPath": "config.mysql_python",
+        "description": "config.mysql_python",
+        "peekOfCode": "def obtener_credenciales(usuario):\n    # Establecer la conexión a la base de datos\n    conn = mysql.connector.connect(\n        host=\"localhost\",\n        user=\"root\",\n        password=\"\",\n        database=\"login\"\n    )\n    # Crear el cursor para ejecutar consultas\n    cursor = conn.cursor()",
         "detail": "config.mysql_python",
         "documentation": {}
     },
