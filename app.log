@@ -1,0 +1,64 @@
+2024-04-07 21:32:37,249 - INFO: Usuario 'DavidCartagena' agregado correctamente.
+2024-04-07 21:32:40,175 - INFO: Iniciando sesión en Instagram...
+2024-04-07 21:32:51,049 - INFO: Inicio de sesión exitoso.
+2024-04-07 21:37:04,526 - INFO: Usuario 'PruebasOK' agregado correctamente.
+2024-04-07 21:37:48,606 - INFO: Iniciando sesión en Instagram...
+2024-04-07 21:37:58,691 - ERROR: Error al iniciar sesión: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=123.0.6312.106)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6945A7072+63090]
+	(No symbol) [0x00007FF694512CC2]
+	(No symbol) [0x00007FF6943AEC65]
+	(No symbol) [0x00007FF69438CA7C]
+	(No symbol) [0x00007FF69441D687]
+	(No symbol) [0x00007FF694432AC1]
+	(No symbol) [0x00007FF694416D83]
+	(No symbol) [0x00007FF6943E83A8]
+	(No symbol) [0x00007FF6943E9441]
+	GetHandleVerifier [0x00007FF6949A25CD+4238285]
+	GetHandleVerifier [0x00007FF6949DF72D+4488493]
+	GetHandleVerifier [0x00007FF6949D7A0F+4456463]
+	GetHandleVerifier [0x00007FF6946805B6+953270]
+	(No symbol) [0x00007FF69451E58F]
+	(No symbol) [0x00007FF694519264]
+	(No symbol) [0x00007FF69451939B]
+	(No symbol) [0x00007FF694509BD4]
+	BaseThreadInitThunk [0x00007FF9B3207344+20]
+	RtlUserThreadStart [0x00007FF9B39C26B1+33]
+
+2024-04-07 21:40:41,203 - INFO: Usuario 'PruebaPass' agregado correctamente.
+2024-04-07 21:41:18,778 - INFO: Usuario 'pruebas.esteban98' editado correctamente.
+2024-04-07 21:41:27,198 - INFO: Iniciando sesión en Instagram...
+2024-04-07 21:41:38,386 - INFO: Inicio de sesión exitoso.
+2024-04-07 21:58:13,782 - INFO: Iniciando sesión en Instagram...
+2024-04-07 21:58:24,088 - ERROR: Error al iniciar sesión: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=123.0.6312.106)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6945A7072+63090]
+	(No symbol) [0x00007FF694512CC2]
+	(No symbol) [0x00007FF6943AEC65]
+	(No symbol) [0x00007FF69438CA7C]
+	(No symbol) [0x00007FF69441D687]
+	(No symbol) [0x00007FF694432AC1]
+	(No symbol) [0x00007FF694416D83]
+	(No symbol) [0x00007FF6943E83A8]
+	(No symbol) [0x00007FF6943E9441]
+	GetHandleVerifier [0x00007FF6949A25CD+4238285]
+	GetHandleVerifier [0x00007FF6949DF72D+4488493]
+	GetHandleVerifier [0x00007FF6949D7A0F+4456463]
+	GetHandleVerifier [0x00007FF6946805B6+953270]
+	(No symbol) [0x00007FF69451E58F]
+	(No symbol) [0x00007FF694519264]
+	(No symbol) [0x00007FF69451939B]
+	(No symbol) [0x00007FF694509BD4]
+	BaseThreadInitThunk [0x00007FF9B3207344+20]
+	RtlUserThreadStart [0x00007FF9B39C26B1+33]
+
+2024-04-07 21:59:22,467 - INFO: Usuario 'pruebas.esteban98' editado correctamente.
+2024-04-07 21:59:26,430 - INFO: Iniciando sesión en Instagram...
+2024-04-07 21:59:37,490 - INFO: Inicio de sesión exitoso.
+2024-04-07 22:14:41,430 - INFO: Iniciando sesión en Instagram...
+2024-04-07 22:14:53,412 - INFO: Inicio de sesión exitoso.
+2024-04-07 22:17:01,006 - INFO: Iniciando sesión en Instagram...

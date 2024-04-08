@@ -1,19 +1,38 @@
 [
     {
-        "label": "label",
-        "importPath": "cProfile",
-        "description": "cProfile",
+        "label": "sys",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "cProfile",
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
         "documentation": {}
     },
     {
-        "label": "sys,",
+        "label": "time",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "sys.",
-        "description": "sys.",
-        "detail": "sys.",
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
         "documentation": {}
     },
     {
@@ -25,7 +44,7 @@
         "documentation": {}
     },
     {
-        "label": "pyqtSlot",
+        "label": "*",
         "importPath": "PyQt5.QtCore",
         "description": "PyQt5.QtCore",
         "isExtraImport": true,
@@ -81,23 +100,7 @@
         "documentation": {}
     },
     {
-        "label": "obtener_usuarios",
-        "importPath": "mysql_python",
-        "description": "mysql_python",
-        "isExtraImport": true,
-        "detail": "mysql_python",
-        "documentation": {}
-    },
-    {
-        "label": "obtener_credenciales",
-        "importPath": "mysql_python",
-        "description": "mysql_python",
-        "isExtraImport": true,
-        "detail": "mysql_python",
-        "documentation": {}
-    },
-    {
-        "label": "agregar_usuario",
+        "label": "*",
         "importPath": "mysql_python",
         "description": "mysql_python",
         "isExtraImport": true,
@@ -122,15 +125,6 @@
         "documentation": {}
     },
     {
-        "label": "os",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "os",
-        "description": "os",
-        "detail": "os",
-        "documentation": {}
-    },
-    {
         "label": "site",
         "kind": 6,
         "isExtraImport": true,
@@ -140,29 +134,20 @@
         "documentation": {}
     },
     {
-        "label": "sys",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "sys",
-        "description": "sys",
-        "detail": "sys",
-        "documentation": {}
-    },
-    {
         "label": "VentanaInicioSesion",
         "kind": 6,
         "importPath": "config.index",
         "description": "config.index",
-        "peekOfCode": "class VentanaInicioSesion(QWidget):\n    def __init__(self):\n        super().__init__()\n        self.setWindowTitle(\"Inicio de Sesión en Instagram\")\n        self.setFixedSize(700,500)\n        # Obtener la lista de usuarios desde la base de datos\n        self.usuarios = obtener_usuarios()\n        # Widgets\n        self.usuario_label = QLabel(\"Usuarios:\")\n        self.lista_usuarios = QListWidget()",
+        "peekOfCode": "class VentanaInicioSesion(QWidget):\n    def __init__(self):\n        super().__init__()\n        self.setWindowTitle(\"Inicio de Sesión en Instagram\")\n        self.setFixedSize(700, 500)\n        # Establecer un estilo global para los widgets\n        self.estilo_global()\n        # Obtener la lista de usuarios desde la base de datos\n        self.usuarios = obtener_usuarios()\n        # Widgets",
         "detail": "config.index",
         "documentation": {}
     },
     {
-        "label": "DialogoAgregarUsuario",
+        "label": "DialogoAgregarEditarUsuario",
         "kind": 6,
         "importPath": "config.index",
         "description": "config.index",
-        "peekOfCode": "class DialogoAgregarUsuario(QDialog):\n    def __init__(self):\n        super().__init__()\n        self.setWindowTitle(\"Agregar Usuario\")\n        self.setGeometry(200, 200, 300, 100)\n        # Widgets\n        self.usuario_label = QLabel(\"Usuario:\")\n        self.usuario_line_edit = QLineEdit()\n        self.contrasena_label = QLabel(\"Contraseña:\")\n        self.contrasena_line_edit = QLineEdit()",
+        "peekOfCode": "class DialogoAgregarEditarUsuario(QDialog):\n    def __init__(self, tipo=\"agregar\"):\n        super().__init__()\n        self.setWindowTitle(\"Agregar Usuario\" if tipo == \"agregar\" else \"Editar Usuario\")\n        self.setGeometry(200, 200, 500, 200)\n        # Widgets\n        self.usuario_label = QLabel(\"Usuario:\")\n        self.usuario_line_edit = QLineEdit()\n        self.contrasena_label = QLabel(\"Contraseña:\")\n        self.contrasena_line_edit = QLineEdit()",
         "detail": "config.index",
         "documentation": {}
     },
@@ -171,7 +156,7 @@
         "kind": 2,
         "importPath": "config.index",
         "description": "config.index",
-        "peekOfCode": "def iniciar_sesion_instagram(usuario, contrasena):\n    global driver\n    try:\n        driver = webdriver.Chrome()\n        driver.get(\"https://www.instagram.com\")\n        # Esperar a que el campo de usuario sea visible\n        campo_usuario = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, \"username\")))\n        # Esperar a que el campo de contraseña sea visible\n        campo_contrasena = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, \"password\")))\n        # Ingresar el usuario y la contraseña",
+        "peekOfCode": "def iniciar_sesion_instagram(usuario, contrasena):\n    global driver\n    try:\n        logging.info(\"Iniciando sesión en Instagram...\")\n        driver = webdriver.Chrome()\n        driver.get(\"https://www.instagram.com\")\n        # Esperar a que el campo de usuario sea visible\n        campo_usuario = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, \"username\")))\n        # Esperar a que el campo de contraseña sea visible\n        campo_contrasena = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, \"password\")))",
         "detail": "config.index",
         "documentation": {}
     },
@@ -180,8 +165,17 @@
         "kind": 5,
         "importPath": "config.index",
         "description": "config.index",
-        "peekOfCode": "driver = None\n# Función para iniciar sesión en Instagram\ndef iniciar_sesion_instagram(usuario, contrasena):\n    global driver\n    try:\n        driver = webdriver.Chrome()\n        driver.get(\"https://www.instagram.com\")\n        # Esperar a que el campo de usuario sea visible\n        campo_usuario = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, \"username\")))\n        # Esperar a que el campo de contraseña sea visible",
+        "peekOfCode": "driver = None\nimport logging\ndef iniciar_sesion_instagram(usuario, contrasena):\n    global driver\n    try:\n        logging.info(\"Iniciando sesión en Instagram...\")\n        driver = webdriver.Chrome()\n        driver.get(\"https://www.instagram.com\")\n        # Esperar a que el campo de usuario sea visible\n        campo_usuario = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, \"username\")))",
         "detail": "config.index",
+        "documentation": {}
+    },
+    {
+        "label": "conectar_base_datos",
+        "kind": 2,
+        "importPath": "config.mysql_python",
+        "description": "config.mysql_python",
+        "peekOfCode": "def conectar_base_datos():\n    return mysql.connector.connect(\n        host=\"localhost\",\n        user=\"root\",\n        password=\"\",\n        database=\"login\"\n    )\ndef obtener_usuarios():\n    try:\n        conn = conectar_base_datos()",
+        "detail": "config.mysql_python",
         "documentation": {}
     },
     {
@@ -189,7 +183,7 @@
         "kind": 2,
         "importPath": "config.mysql_python",
         "description": "config.mysql_python",
-        "peekOfCode": "def obtener_usuarios():\n    # Establecer la conexión a la base de datos\n    conn = mysql.connector.connect(\n        host=\"localhost\",\n        user=\"root\",\n        password=\"\",\n        database=\"login\"\n    )\n    # Crear el cursor para ejecutar consultas\n    cursor = conn.cursor()",
+        "peekOfCode": "def obtener_usuarios():\n    try:\n        conn = conectar_base_datos()\n        cursor = conn.cursor()\n        cursor.execute(\"SELECT user FROM users\")\n        usuarios = [usuario[0] for usuario in cursor.fetchall()]\n        return usuarios\n    except mysql.connector.Error as error:\n        print(\"Error al obtener usuarios:\", error)\n    finally:",
         "detail": "config.mysql_python",
         "documentation": {}
     },
@@ -198,16 +192,16 @@
         "kind": 2,
         "importPath": "config.mysql_python",
         "description": "config.mysql_python",
-        "peekOfCode": "def agregar_usuario(usuario, contrasena):\n    # Establecer la conexión a la base de datos\n    conn = mysql.connector.connect(\n        host=\"localhost\",\n        user=\"root\",\n        password=\"\",\n        database=\"login\"\n    )\n    # Crear el cursor para ejecutar consultas\n    cursor = conn.cursor()",
+        "peekOfCode": "def agregar_usuario(usuario, contrasena):\n    try:\n        conn = conectar_base_datos()\n        cursor = conn.cursor()\n        sql = \"INSERT INTO users (user, password) VALUES (%s, %s)\"\n        valores = (usuario, contrasena)\n        cursor.execute(sql, valores)\n        conn.commit()\n    except mysql.connector.Error as error:\n        print(\"Error al agregar usuario:\", error)",
         "detail": "config.mysql_python",
         "documentation": {}
     },
     {
-        "label": "obtener_contrasena",
+        "label": "verificar_contrasena",
         "kind": 2,
         "importPath": "config.mysql_python",
         "description": "config.mysql_python",
-        "peekOfCode": "def obtener_contrasena(usuario):\n    # Establecer la conexión a la base de datos\n    conn = mysql.connector.connect(\n        host=\"localhost\",\n        user=\"root\",\n        password=\"\",\n        database=\"login\"\n    )\n    # Crear el cursor para ejecutar consultas\n    cursor = conn.cursor()",
+        "peekOfCode": "def verificar_contrasena(usuario, contrasena):\n    try:\n        conn = conectar_base_datos()\n        cursor = conn.cursor()\n        cursor.execute(\"SELECT password FROM users WHERE user = %s\", (usuario,))\n        resultado = cursor.fetchone()\n        contrasena_guardada = resultado[0] if resultado else None\n        return contrasena == contrasena_guardada\n    except mysql.connector.Error as error:\n        print(\"Error al verificar contraseña:\", error)",
         "detail": "config.mysql_python",
         "documentation": {}
     },
@@ -216,7 +210,25 @@
         "kind": 2,
         "importPath": "config.mysql_python",
         "description": "config.mysql_python",
-        "peekOfCode": "def obtener_credenciales(usuario):\n    # Establecer la conexión a la base de datos\n    conn = mysql.connector.connect(\n        host=\"localhost\",\n        user=\"root\",\n        password=\"\",\n        database=\"login\"\n    )\n    # Crear el cursor para ejecutar consultas\n    cursor = conn.cursor()",
+        "peekOfCode": "def obtener_credenciales(usuario):\n    try:\n        conn = conectar_base_datos()\n        cursor = conn.cursor()\n        cursor.execute(\"SELECT user, password FROM users WHERE user = %s\", (usuario,))\n        resultado = cursor.fetchone()\n        credenciales = resultado if resultado else None\n        return credenciales\n    except mysql.connector.Error as error:\n        print(\"Error al obtener credenciales:\", error)",
+        "detail": "config.mysql_python",
+        "documentation": {}
+    },
+    {
+        "label": "editar_usuario",
+        "kind": 2,
+        "importPath": "config.mysql_python",
+        "description": "config.mysql_python",
+        "peekOfCode": "def editar_usuario(usuario_actual, nuevo_usuario, nueva_contrasena):\n    try:\n        conn = conectar_base_datos()\n        cursor = conn.cursor()\n        sql = \"UPDATE users SET user = %s, password = %s WHERE user = %s\"\n        valores = (nuevo_usuario, nueva_contrasena, usuario_actual)\n        cursor.execute(sql, valores)\n        conn.commit()\n    except mysql.connector.Error as error:\n        print(\"Error al editar usuario:\", error)",
+        "detail": "config.mysql_python",
+        "documentation": {}
+    },
+    {
+        "label": "eliminar_usuario",
+        "kind": 2,
+        "importPath": "config.mysql_python",
+        "description": "config.mysql_python",
+        "peekOfCode": "def eliminar_usuario(usuario):\n    try:\n        conn = conectar_base_datos()\n        cursor = conn.cursor()\n        sql = \"DELETE FROM users WHERE user = %s\"\n        cursor.execute(sql, (usuario,))\n        conn.commit()\n    except mysql.connector.Error as error:\n        print(\"Error al eliminar usuario:\", error)\n    finally:",
         "detail": "config.mysql_python",
         "documentation": {}
     },
