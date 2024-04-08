@@ -2,11 +2,18 @@ import mysql.connector
 
 # Función para establecer la conexión a la base de datos
 def conectar_base_datos():
-    return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password=""
-    )
+    try:
+        conn = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password=""
+        )
+        # Seleccionar la base de datos 'login'
+        conn.cursor().execute("USE login")
+        return conn
+    except mysql.connector.Error as error:
+        print("Error al conectar a la base de datos:", error)
+
 
 # Función para crear la base de datos si no existe
 def crear_base_datos():

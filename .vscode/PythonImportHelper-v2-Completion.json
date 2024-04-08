@@ -174,7 +174,7 @@
         "kind": 2,
         "importPath": "config.mysql_python",
         "description": "config.mysql_python",
-        "peekOfCode": "def conectar_base_datos():\n    return mysql.connector.connect(\n        host=\"localhost\",\n        user=\"root\",\n        password=\"\"\n    )\n# Función para crear la base de datos si no existe\ndef crear_base_datos():\n    try:\n        conn = conectar_base_datos()",
+        "peekOfCode": "def conectar_base_datos():\n    try:\n        conn = mysql.connector.connect(\n            host=\"localhost\",\n            user=\"root\",\n            password=\"\"\n        )\n        # Seleccionar la base de datos 'login'\n        conn.cursor().execute(\"USE login\")\n        return conn",
         "detail": "config.mysql_python",
         "documentation": {}
     },

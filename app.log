@@ -69,3 +69,7 @@ Stacktrace:
 2024-04-07 22:18:33,325 - INFO: Usuario 'PruebasOK' eliminado correctamente.
 2024-04-07 22:20:20,655 - INFO: Iniciando sesión en Instagram...
 2024-04-07 22:20:33,864 - INFO: Inicio de sesión exitoso.
+2024-04-07 22:58:02,601 - INFO: Usuario 'PaBloJuegos' eliminado correctamente.
+2024-04-07 22:58:07,288 - WARNING: No se seleccionó ningún usuario para iniciar sesión.
+2024-04-07 22:58:08,958 - INFO: Iniciando sesión en Instagram...
+2024-04-07 22:58:22,275 - INFO: Inicio de sesión exitoso.
