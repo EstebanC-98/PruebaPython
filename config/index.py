@@ -1,7 +1,4 @@
-import sys
-import time
-import os
-import logging
+import sys, time, os, logging
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
@@ -97,9 +94,13 @@ class VentanaInicioSesion(QWidget):
         self.titulo_label.setAlignment(Qt.AlignCenter)
 
         # Conexiones de señal
+        self.iniciar_sesion_btn.setStyleSheet("border-radius: 10px; border: 2px solid gray; background:silver; color:black; font: bold 14px; max-width: 10em ; min-width: 8em; padding: 6px;")
         self.iniciar_sesion_btn.clicked.connect(self.solicitar_contrasena)
+        self.agregar_usuario_btn.setStyleSheet("border-radius: 10px; border: 2px solid gray; background:silver; color:black; font: bold 14px; max-width: 10em ; min-width: 8em; padding: 6px;")
         self.agregar_usuario_btn.clicked.connect(self.abrir_modal_agregar_usuario)
+        self.eliminar_usuario_btn.setStyleSheet("border-radius: 10px; border: 2px solid gray; background:silver; color:black; font: bold 14px; max-width: 10em ; min-width: 8em; padding: 6px;")
         self.eliminar_usuario_btn.clicked.connect(self.eliminar_usuario_seleccionado)
+        self.editar_usuario_btn.setStyleSheet("border-radius: 10px; border: 2px solid gray; background:silver; color:black; font: bold 14px; max-width: 10em ; min-width: 8em; padding: 6px;")
         self.editar_usuario_btn.clicked.connect(self.abrir_modal_editar_usuario)
 
         # Configurar la imagen desde el archivo local
@@ -229,16 +230,21 @@ class DialogoAgregarEditarUsuario(QDialog):
 
         # Conexiones de señal
         self.aceptar_btn.clicked.connect(self.accept)
+        self.aceptar_btn.setStyleSheet("border-radius: 10px; border: 2px solid gray; background:silver; color:black; font: bold 14px; max-width: 10em ; min-width: 8em; padding: 6px;")
         self.cancelar_btn.clicked.connect(self.reject)
+        self.cancelar_btn.setStyleSheet("border-radius: 10px; border: 2px solid gray; background:silver; color:black; font: bold 14px; max-width: 10em ; min-width: 8em; padding: 6px;")
         self.mostrar_contrasena_btn.clicked.connect(self.toggle_mostrar_contrasena)
+        self.mostrar_contrasena_btn.setStyleSheet("border-radius: 10px; border: 2px solid gray; background:silver; color:black; font: bold 14px; max-width: 10em ; min-width: 8em; padding: 6px;")
 
     def toggle_mostrar_contrasena(self):
         if self.contrasena_line_edit.echoMode() == QLineEdit.Password:
             self.contrasena_line_edit.setEchoMode(QLineEdit.Normal)
             self.mostrar_contrasena_btn.setText("Ocultar Contraseña")
+            self.mostrar_contrasena_btn.setStyleSheet("border-radius: 10px; border: 2px solid gray; background:silver; color:black; font: bold 14px; max-width: 10em ; min-width: 8em; padding: 6px;")
         else:
             self.contrasena_line_edit.setEchoMode(QLineEdit.Password)
             self.mostrar_contrasena_btn.setText("Mostrar Contraseña")
+            self.mostrar_contrasena_btn.setStyleSheet("border-radius: 10px; border: 2px solid gray; background:silver; color:black; font: bold 14px; max-width: 10em ; min-width: 8em; padding: 6px;")
 
 
 if __name__ == "__main__":
