@@ -174,7 +174,25 @@
         "kind": 2,
         "importPath": "config.mysql_python",
         "description": "config.mysql_python",
-        "peekOfCode": "def conectar_base_datos():\n    return mysql.connector.connect(\n        host=\"localhost\",\n        user=\"root\",\n        password=\"\",\n        database=\"login\"\n    )\ndef obtener_usuarios():\n    try:\n        conn = conectar_base_datos()",
+        "peekOfCode": "def conectar_base_datos():\n    return mysql.connector.connect(\n        host=\"localhost\",\n        user=\"root\",\n        password=\"\"\n    )\n# Función para crear la base de datos si no existe\ndef crear_base_datos():\n    try:\n        conn = conectar_base_datos()",
+        "detail": "config.mysql_python",
+        "documentation": {}
+    },
+    {
+        "label": "crear_base_datos",
+        "kind": 2,
+        "importPath": "config.mysql_python",
+        "description": "config.mysql_python",
+        "peekOfCode": "def crear_base_datos():\n    try:\n        conn = conectar_base_datos()\n        cursor = conn.cursor()\n        cursor.execute(\"CREATE DATABASE IF NOT EXISTS login\")\n        conn.commit()\n    except mysql.connector.Error as error:\n        print(\"Error al crear la base de datos:\", error)\n    finally:\n        if conn.is_connected():",
+        "detail": "config.mysql_python",
+        "documentation": {}
+    },
+    {
+        "label": "crear_tabla_usuarios",
+        "kind": 2,
+        "importPath": "config.mysql_python",
+        "description": "config.mysql_python",
+        "peekOfCode": "def crear_tabla_usuarios():\n    try:\n        conn = conectar_base_datos()\n        cursor = conn.cursor()\n        cursor.execute(\"CREATE TABLE IF NOT EXISTS login.users ( user VARCHAR(255), password VARCHAR(255))\")\n        conn.commit()\n    except mysql.connector.Error as error:\n        print(\"Error al crear la tabla de usuarios:\", error)\n    finally:\n        if conn.is_connected():",
         "detail": "config.mysql_python",
         "documentation": {}
     },

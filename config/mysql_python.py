@@ -5,10 +5,42 @@ def conectar_base_datos():
     return mysql.connector.connect(
         host="localhost",
         user="root",
-        password="",
-        database="login"
+        password=""
     )
 
+# Función para crear la base de datos si no existe
+def crear_base_datos():
+    try:
+        conn = conectar_base_datos()
+        cursor = conn.cursor()
+        cursor.execute("CREATE DATABASE IF NOT EXISTS login")
+        conn.commit()
+    except mysql.connector.Error as error:
+        print("Error al crear la base de datos:", error)
+    finally:
+        if conn.is_connected():
+            cursor.close()
+            conn.close()
+
+# Función para crear la tabla users si no existe
+def crear_tabla_usuarios():
+    try:
+        conn = conectar_base_datos()
+        cursor = conn.cursor()
+        cursor.execute("CREATE TABLE IF NOT EXISTS login.users ( user VARCHAR(255), password VARCHAR(255))")
+        conn.commit()
+    except mysql.connector.Error as error:
+        print("Error al crear la tabla de usuarios:", error)
+    finally:
+        if conn.is_connected():
+            cursor.close()
+            conn.close()
+
+# Llamar a las funciones para crear la base de datos y la tabla si no existen
+crear_base_datos()
+crear_tabla_usuarios()
+
+# Función para obtener todos los usuarios de la tabla users
 def obtener_usuarios():
     try:
         conn = conectar_base_datos()
